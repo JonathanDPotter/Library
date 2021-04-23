@@ -32,15 +32,26 @@ function showBooksinLibrary(books) {
     book.classList.add("book");
     book.setAttribute("data-index", i);
     book.setAttribute("id", i);
+
     let title = document.createElement("p");
     title.textContent = `Title: ${obj.title}`;
+
     let author = document.createElement("p");
     author.textContent = `Author: ${obj.author}`;
-    let read = document.createElement("p");
-    read.textContent = `Read?: ${obj.read}`;
+
+    let read = document.createElement("input");
+    read.type = 'checkbox'
+    read.checked = obj.read
+
+    let readLabel = document.createElement("label");
+    readLabel.for = "read";
+    readLabel.textContent = "Read? "
+
     book.appendChild(title);
     book.appendChild(author);
+    book.appendChild(readLabel);
     book.appendChild(read);
+
     let button = document.createElement("button");
     button.classList.add("btn");
     button.innerText = "remove";
